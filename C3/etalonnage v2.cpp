@@ -92,13 +92,13 @@ int main() {
     wait(1.);
 
     while (1) {
-        if (button.read() == 0 && vetat >= 4) { // On compte le nombre de fois que le bouton est cliqué sur une période de 1.5s
-            while (button.read() == 0); // Tant que le bouton est appuyé on ne fait rien
+        if (button.read() == 0) { // On compte le nombre de fois que le bouton est cliqué sur une période de 1.5s
             speed += 0.1; // On augmente la vitesse
             if(speed > 1)
-                speed = 1;
+                speed = 0; // On l'arrete
             vetat = 0; // On remet à 0 ce qui permet de lancer le robot aussi au début
             affiche(int(speed*100), 1);
+            while (button.read() == 0); // Tant que le bouton est appuyé on ne fait rien
             wait(0.25); // On attend juste un peu
         }
 

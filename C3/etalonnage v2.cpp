@@ -99,7 +99,7 @@ int main() {
             vetat = 0; // On remet à 0 ce qui permet de lancer le robot aussi au début
             affiche(int(speed*100), 1);
             while (button.read() == 0); // Tant que le bouton est appuyé on ne fait rien
-            wait(0.25); // On attend juste un peu
+            wait_ms(10); // On attend juste un peu avant de continuer, ignore les rebonds de tension
         }
 
         m3pi.calibrated_sensors(tab);
